@@ -9,10 +9,14 @@ import { VideoService } from "../../services/video.service";
 })
 export class VideosComponent implements OnInit {
   videos: Video[];
-
+  //injecting service into the constructor
   constructor(private videoService: VideoService) {}
 
   ngOnInit() {
-    this.videos = this.videoService.getVideos();
+    //when the component lods, load the videos
+    //subscribe to the observale in the service
+    this.videoService.getVideos().subscribe(videos => {
+      this.videos = videos;
+    });
   }
 }
