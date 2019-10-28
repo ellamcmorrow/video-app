@@ -19,4 +19,9 @@ export class VideoItemComponent implements OnInit {
     };
     return classes;
   }
+
+  onToggle(video) {
+    //checkbox change event -> color change in ui
+    video.watched = !video.watched;
+  }
 }

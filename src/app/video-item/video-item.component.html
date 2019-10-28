@@ -1,5 +1,6 @@
 <div [ngClass]="setClasses()">
   <p>
+    <input type (change)="onToggle(video)" type="checkbox" />
     {{ video.title }}
   </p>
 </div>

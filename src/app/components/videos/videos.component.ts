@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { Video } from "../../models/Video";
+import { VideoService } from "../../services/video.service";
 
 @Component({
   selector: "app-videos",
@@ -9,25 +10,9 @@ import { Video } from "../../models/Video";
 export class VideosComponent implements OnInit {
   videos: Video[];
 
-  constructor() {}
+  constructor(private videoService: VideoService) {}
 
   ngOnInit() {
-    this.videos = [
-      {
-        id: 1,
-        title: "Video 1",
-        watched: true
-      },
-      {
-        id: 2,
-        title: "Video 2",
-        watched: false
-      },
-      {
-        id: 3,
-        title: "Video 3",
-        watched: true
-      }
-    ];
+    this.videos = this.videoService.getVideos();
   }
 }
